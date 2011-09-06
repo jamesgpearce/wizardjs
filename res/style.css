@@ -1,0 +1,30 @@
+.App {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    height:100%;
+}
+
+td {
+    vertical-align: top;
+}
+
+nav {
+    display: table-cell;
+    background: #eee;
+    width: 300px;
+}
+
+.selected {
+    background:#000;
+    color:#fff;
+}
+
+form {
+    display: table-cell;
+    background:#ccc;
+}
+
+
+td {
+    border: 1px solid black
+}

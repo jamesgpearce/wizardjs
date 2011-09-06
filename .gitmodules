@@ -1,0 +1,12 @@
+[submodule "lib/underscore"]
+	path = lib/underscore
+	url = https://github.com/documentcloud/underscore.git
+[submodule "lib/backbone"]
+	path = lib/backbone
+	url = https://github.com/documentcloud/backbone.git
+[submodule "lib/Backbone.localStorage"]
+	path = lib/Backbone.localStorage
+	url = https://github.com/jeromegn/Backbone.localStorage.git
+[submodule "lib/jquery"]
+	path = lib/jquery
+	url = https://github.com/jquery/jquery.git
