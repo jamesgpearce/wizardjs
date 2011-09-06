@@ -10,3 +10,6 @@
 [submodule "lib/jquery"]
 	path = lib/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "lib/foxjs"]
+	path = lib/foxjs
+	url = git://github.com/jamesgpearce/foxjs.git
