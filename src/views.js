@@ -29,7 +29,6 @@ Wizard.views.Base = Backbone.View.extend({
 });
 
 Wizard.views.ThingFormField = Wizard.views.Base.extend({
-    tagName: "div",
     events: {
         "input input": "change"
     },
@@ -56,7 +55,6 @@ Wizard.views.ThingFormField = Wizard.views.Base.extend({
 });
 
 Wizard.views.ThingForm = Wizard.views.Base.extend({
-    tagName: "form",
     initialize: function () {
         this.el.className = this.model.constructor.modelName + 'Form';
         this.model.bind('destroy', this.remove, this);
@@ -74,12 +72,11 @@ Wizard.views.ThingForm = Wizard.views.Base.extend({
 });
 
 Wizard.views.AddThing = Wizard.views.Base.extend({
-    tagName: 'li',
     events: {
         click: "add"
     },
     initialize: function () {
-        this.el.className = 'Add' + this.collection.model.modelName;
+        this.el.className = 'Add' + this.collection.model.modelName + ' Add';
     },
     add: function () {
         this.collection.add();
@@ -91,12 +88,11 @@ Wizard.views.AddThing = Wizard.views.Base.extend({
 });
 
 Wizard.views.ThingItem = Wizard.views.Base.extend({
-    tagName: "li",
     events: {
         click: "itemFocus"
     },
     initialize: function () {
-        this.el.className = this.model.constructor.modelName + 'Item';
+        this.el.className = this.model.constructor.modelName + 'Item Item';
         this.model.bind('change', this.render, this);
         this.model.bind('destroy', this.remove, this);
     },
@@ -124,9 +120,8 @@ Wizard.views.ThingItem = Wizard.views.Base.extend({
 });
 
 Wizard.views.ThingsList = Wizard.views.Base.extend({
-    tagName: "ul",
     initialize: function () {
-        this.el.className = this.collection.model.modelName + 'sList';
+        this.el.className = this.collection.model.modelName + 'sList List';
         this.collection.bind('add', this.addThingItem, this);
     },
     render: function () {
@@ -160,7 +155,6 @@ Wizard.views.ThingsList = Wizard.views.Base.extend({
 });
 
 Wizard.views.ThingsLists = Wizard.views.Base.extend({
-    tagName: "nav",
     initialize: function () {
         this.el.className = 'ThingsLists';
         for (var pack in Wizard.packs) {
@@ -202,7 +196,6 @@ Wizard.views.ThingsLists = Wizard.views.Base.extend({
 });
 
 Wizard.views.Main = Wizard.views.Base.extend({
-    tagName: "article",
     className: 'Main',
     //todo tabs
     addThingForm: function (thing) {
@@ -216,7 +209,6 @@ Wizard.views.Main = Wizard.views.Base.extend({
 });
 
 Wizard.views.Toolbar = Wizard.views.Base.extend({
-    tagName: "nav",
     className: 'Toolbar',
     initialize: function () {
         this.el.innerHTML = "A toolbar";
@@ -227,7 +219,6 @@ Wizard.views.Toolbar = Wizard.views.Base.extend({
 Wizard.views.App = Wizard.views.Base.extend({
     initialize: function () {
         this.el = document.body;
-        this.el.className = 'App';
         this.toolbar = Wizard.views.toolbar = new Wizard.views.Toolbar();
         this.thingsLists = Wizard.views.thingsLists = new Wizard.views.ThingsLists();
         this.main = Wizard.views.main = new Wizard.views.Main();
@@ -244,11 +235,6 @@ Wizard.views.App = Wizard.views.Base.extend({
                 a: this.toolbar,
                 b: this.thingsLists,
                 c: this.main
-            },
-            styles: {
-                table: {width:'100%'},
-                a: {'height':'60px'},
-                b: {'fixed-width':'200px', height:'500px'}
             }
         });
         this.thingsLists.bind('itemFocus', this.itemFocus, this);
